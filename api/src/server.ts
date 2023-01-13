@@ -5,7 +5,8 @@ import { connectToDatabase } from "./database";
 import { collectorRouter } from "./routes/collector.routes";
 import { cardCollectionRouter } from "./routes/cardcollection.routes";
 import { tcgapiRouter } from "./routes/tcgapi.routes";
- 
+import {default as bp} from "body-parser";
+
 // Load environment variables from the .env file, where the ATLAS_URI is configured
 dotenv.config();
 
@@ -24,6 +25,7 @@ connectToDatabase(ATLAS_URI)
    .then(() => {
        const app = express();
        app.use(cors());
+       app.use(bp.json());
        app.use("/collectors", collectorRouter);
        app.use("/cards", cardCollectionRouter);
        app.use("/tcg", tcgapiRouter)

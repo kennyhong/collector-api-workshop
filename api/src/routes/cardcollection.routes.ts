@@ -22,7 +22,7 @@ cardCollectionRouter.get("/:collectorId", async (req, res) => {
         const id = req?.params?.collectorId;
         const infoCards: any[] = []; // use this to send
 
-        // Code Task 2 Here
+        // Code Task 1 Here
         res.status(200).send(`NOT YET IMPLEMENTED: ` + infoCards)
 
     } catch (error) {
@@ -35,7 +35,7 @@ cardCollectionRouter.get("/:collectorId", async (req, res) => {
 cardCollectionRouter.delete("/:id", async (req, res) => {
     try {
         const id = req?.params?.id;
-        // Code Task 4 Here
+        // Code Task 3 Here
 
         res.status(200).send(`NOT YET IMPLEMENTED`)
 
@@ -52,7 +52,7 @@ cardCollectionRouter.delete("/:id", async (req, res) => {
         const id = req?.params?.cardId;
         const newCondition = req.body;
 
-        // Code Task 5 Here
+        // Code Task 4 Here
 
         res.status(200).send(`NOT YET IMPLEMENTED`)
         

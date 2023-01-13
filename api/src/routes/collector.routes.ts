@@ -16,8 +16,36 @@ collectorRouter.get("/", async (_req, res) => {
 
 collectorRouter.get("/:id", async (req, res) => {
     try {
-        const id = req?.params?.id;
-        // Code Task 1 Here
+        const id = req?.params?.id;c
+
+        // query object the collectors mongo collection with collectors ID
+        const query = { _id: new mongodb.ObjectId(id) };
+
+        // query object for the cards mongo collection using collector id
+        const cardsQuery = {collectorId: id};
+
+        // query collectors collection for the collector
+        const collector = await collections.collectors.findOne(query);
+
+        // query the cards collection for all of the collector's cards
+        const cards = await collections.cards.find(cardsQuery).toArray();
+
+
+        // combine them to one object
+        let collectorObj = {
+            collector: collector,
+            collection: cards
+        }
+
+        // send results or error
+        if (collectorObj) {
+            res.status(200).send(collectorObj);
+        } else {
+            res.status(404).send(`Failed to find an collector: ID ${id}`);
+        }
+    } catch (error) {
+        res.status(404).send(`Failed to find an collector: ID ${req?.params?.id}`);
+    }
         res.status(200).send(`NOT YET IMPLEMENTED`)
     } catch (error) {
         res.status(404).send(`Failed to find an collector: ID ${req?.params?.id}`);
@@ -47,7 +75,7 @@ collectorRouter.get("/:id", async (req, res) => {
         const condition = req.body.condition;
         const collectorId = req?.params?.collectorId;
 
-        // Code Task 3 Here!
+        // Code Task 2 Here!
         res.status(200).send(`NOT YET IMPLEMENTED`)
         
     } catch (error) {

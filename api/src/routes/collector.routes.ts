@@ -16,7 +16,7 @@ collectorRouter.get("/", async (_req, res) => {
 
 collectorRouter.get("/:id", async (req, res) => {
     try {
-        const id = req?.params?.id;c
+        const id = req?.params?.id;
 
         // query object the collectors mongo collection with collectors ID
         const query = { _id: new mongodb.ObjectId(id) };

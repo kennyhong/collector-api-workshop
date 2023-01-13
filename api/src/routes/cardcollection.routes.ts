@@ -50,12 +50,15 @@ cardCollectionRouter.delete("/:id", async (req, res) => {
  cardCollectionRouter.put("/:cardId", async (req, res) => {
     try {
         const id = req?.params?.cardId;
-        const newCondition = req.body;
+        const newCondition = req.body.newCondition;
 
-        // Code Task 4 Here
+        const result = await collections.cards.updateOne({ cardId: id }, { $set: { condition: newCondition } });
 
-        res.status(200).send(`NOT YET IMPLEMENTED`)
-        
+        if (result.modifiedCount === 0) {
+            res.status(400).send("u forgor (the right card id) 💀");
+        } else {
+            res.status(200).send("bruh it worked 🤯");
+        }
     } catch (error) {
         console.error(error.message);
         res.status(400).send(error.message);

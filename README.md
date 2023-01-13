@@ -28,6 +28,10 @@ npx ts-node src/server.ts
 
 `npx ts-node src/server.ts` - This will start the server locally on localhost:5200 for you to test!
 
+## Some fun calls to make to try it out
+
+`GET` `http://localhost:5200/tcg/swsh12/188` Will get card information
+
 ## Resources that can help you out!
 
 * NodeJs Installation: https://nodejs.org/en/

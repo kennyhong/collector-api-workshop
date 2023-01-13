@@ -46,10 +46,6 @@ collectorRouter.get("/:id", async (req, res) => {
     } catch (error) {
         res.status(404).send(`Failed to find an collector: ID ${req?.params?.id}`);
     }
-        res.status(200).send(`NOT YET IMPLEMENTED`)
-    } catch (error) {
-        res.status(404).send(`Failed to find an collector: ID ${req?.params?.id}`);
-    }
  });
 
  collectorRouter.post("/", async (req, res) => {

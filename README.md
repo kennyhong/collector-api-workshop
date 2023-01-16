@@ -50,7 +50,7 @@ You can use the id `63c1aff90123d06bc3afb885` to test your task!
 
 You can find your task located in `cardcollection.routes.ts`.
 
-Using `/collection/63c1aff90123d06bc3afb885`, you can see what cards the collector has.
+Using `/collectors/63c1aff90123d06bc3afb885`, you can see what cards the collector has.
 
 when `/cards/:collectorid` is called we should receive the following:
 ```json
@@ -301,7 +301,7 @@ Your group is tasked with adding a card to a collection given the collector's Id
 
 When a user does a `POST` call with a JSON body of collectorId (given below), cardId(you can use `SWSH12-184` in the call on postman for better results), and condition of the card(any string describing the card) to `/collectors/:collectorId` it should be added to the `cards` collection. After the card has been added, send a 200 response.
 
-You can use `63c1b1fa0123d06bc3afb889` and query `/collection/63c1b1fa0123d06bc3afb889` to see if your card has been added.
+You can use `63c1b1fa0123d06bc3afb889` and query `/collectors/63c1b1fa0123d06bc3afb889` to see if your card has been added.
 
 
 You can find your task located in `collector.routes.ts`
